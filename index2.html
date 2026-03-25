@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leonidas Giannoulis — IT Expert · UX Designer · Web Developer · Fintech Investor · AI Prompt Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f2ed;
+    --sidebar-bg: #1a1a1a;
+    --accent: #c8a96e;
+    --accent2: #8b5e3c;
+    --text: #1a1a1a;
+    --text-light: #6b6b6b;
+    --sidebar-text: #e8e2d9;
+    --sidebar-muted: #9a9590;
+    --border: #d9d4cc;
+    --tag-bg: #e8e2d9;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ── Layout ── */
+  .wrapper {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    min-height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-shadow: 0 0 80px rgba(0,0,0,.12);
+  }
+
+  /* ── SIDEBAR ── */
+  aside {
+    background: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    padding: 48px 32px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #333 transparent;
+  }
+
+  .avatar-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 28px;
+  }
+
+  .avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    border: 3px solid rgba(200,169,110,.3);
+    letter-spacing: 1px;
+  }
+
+  .sidebar-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: 6px;
+    color: #fff;
+  }
+
+  .sidebar-tagline {
+    font-size: .7rem;
+    font-weight: 500;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .s-section { margin-bottom: 32px; }
+
+  .s-label {
+    font-size: .65rem;
+    font-weight: 600;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border-bottom: 1px solid rgba(200,169,110,.25);
+    padding-bottom: 6px;
+    margin-bottom: 14px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: .8rem;
+    color: var(--sidebar-text);
+    margin-bottom: 8px;
+    text-decoration: none;
+  }
+  .contact-item:hover { color: var(--accent); }
+  .contact-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    opacity: .7;
+  }
+
+  .edu-degree {
+    font-size: .85rem;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 2px;
+  }
+  .edu-school {
+    font-size: .75rem;
+    color: var(--sidebar-muted);
+    margin-bottom: 2px;
+  }
+  .edu-period {
+    font-family: 'DM Mono', monospace;
+    font-size: .68rem;
+    color: var(--accent);
+  }
+  .edu-note {
+    font-size: .7rem;
+    color: var(--sidebar-muted);
+    margin-top: 6px;
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  /* Skills */
+  .skill-group { margin-bottom: 16px; }
+  .skill-group-title {
+    font-size: .65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    color: var(--sidebar-muted);
+    margin-bottom: 8px;
+  }
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .skill-tag {
+    font-size: .68rem;
+    padding: 3px 8px;
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 3px;
+    color: var(--sidebar-text);
+  }
+  .skill-tag.hot {
+    background: rgba(200,169,110,.15);
+    border-color: rgba(200,169,110,.3);
+    color: var(--accent);
+  }
+
+  /* Publications */
+  .pub-item { font-size: .78rem; color: var(--sidebar-text); margin-bottom: 10px; line-height: 1.5; }
+  .pub-item strong { color: #fff; }
+
+  /* Achievements */
+  .ach-item {
+    font-size: .78rem;
+    color: var(--sidebar-text);
+    margin-bottom: 8px;
+    padding-left: 14px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .ach-item::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: .65rem;
+    top: 2px;
+  }
+
+  /* Interests */
+  .interest-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .interest-chip {
+    font-size: .68rem;
+    padding: 3px 9px;
+    border-radius: 20px;
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.08);
+    color: var(--sidebar-muted);
+  }
+
+  /* ── MAIN ── */
+  main {
+    padding: 56px 56px 80px;
+    background: var(--bg);
+  }
+
+  /* Header */
+  .main-header {
+    margin-bottom: 52px;
+    border-bottom: 2px solid var(--text);
+    padding-bottom: 28px;
+  }
+
+  .main-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.2rem;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -.02em;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+
+  .main-roles {
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+  .role-tag {
+    font-size: .65rem;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border: 1.5px solid var(--text);
+    margin-right: 6px;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+  .role-tag.filled {
+    background: var(--text);
+    color: var(--bg);
+  }
+
+  /* Sections */
+  .section {
+    margin-bottom: 48px;
+    opacity: 0;
+    transform: translateY(18px);
+    animation: fadeUp .5s ease forwards;
+  }
+  .section:nth-child(1) { animation-delay: .05s; }
+  .section:nth-child(2) { animation-delay: .1s; }
+  .section:nth-child(3) { animation-delay: .15s; }
+  .section:nth-child(4) { animation-delay: .2s; }
+  .section:nth-child(5) { animation-delay: .25s; }
+  .section:nth-child(6) { animation-delay: .3s; }
+  .section:nth-child(7) { animation-delay: .35s; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--text);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* Profile */
+  .profile-text {
+    font-size: .92rem;
+    line-height: 1.8;
+    color: var(--text-light);
+    max-width: 640px;
+  }
+
+  /* Experience */
+  .exp-item { margin-bottom: 36px; }
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 4px;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .exp-company {
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent2);
+  }
+  .exp-period {
+    font-family: 'DM Mono', monospace;
+    font-size: .7rem;
+    color: var(--text-light);
+  }
+  .exp-role {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+  .exp-bullets { list-style: none; }
+  .exp-bullets li {
+    font-size: .85rem;
+    line-height: 1.7;
+    color: var(--text-light);
+    padding-left: 18px;
+    position: relative;
+    margin-bottom: 5px;
+  }
+  .exp-bullets li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* Projects */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .project-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    padding: 18px 20px;
+    transition: border-color .2s, box-shadow .2s;
+    border-radius: 2px;
+  }
+  .project-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 20px rgba(0,0,0,.07);
+  }
+  .project-name {
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 5px;
+  }
+  .project-desc {
+    font-size: .77rem;
+    line-height: 1.6;
+    color: var(--text-light);
+  }
+
+  /* Impact */
+  .impact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .impact-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 12px;
+    align-items: start;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .impact-label {
+    font-size: .65rem;
+    font-weight: 700;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    padding-top: 2px;
+  }
+  .impact-text {
+    font-size: .82rem;
+    line-height: 1.7;
+    color: var(--text-light);
+  }
+
+  /* References */
+  .refs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+  }
+  .ref-card {
+    padding: 20px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+  }
+  .ref-name {
+    font-size: .9rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 3px;
+  }
+  .ref-title {
+    font-size: .73rem;
+    color: var(--text-light);
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+  .ref-contact {
+    font-family: 'DM Mono', monospace;
+    font-size: .65rem;
+    color: var(--accent2);
+    word-break: break-all;
+  }
+
+  /* Patterns sidebar section */
+  .pattern-group { margin-bottom: 12px; }
+  .pattern-group-title {
+    font-size: .62rem;
+    font-weight: 600;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--sidebar-muted);
+    margin-bottom: 6px;
+  }
+
+  /* Scrollbar */
+  aside::-webkit-scrollbar { width: 4px; }
+  aside::-webkit-scrollbar-track { background: transparent; }
+  aside::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+
+  @media (max-width: 900px) {
+    .wrapper { grid-template-columns: 1fr; }
+    aside { position: static; height: auto; }
+    main { padding: 36px 28px; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .refs-grid { grid-template-columns: 1fr; }
+    .main-name { font-size: 2.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+
+  <!-- ── SIDEBAR ── -->
+  <aside>
+    <div class="avatar-wrap">
+      <div class="avatar">LG</div>
+    </div>
+    <div class="sidebar-name">Leonidas<br>Giannoulis</div>
+    <div class="sidebar-tagline">IT · UX · WebDev · Fintech · AI</div>
+
+    <!-- Contact -->
+    <div class="s-section">
+      <div class="s-label">Contact</div>
+      <a class="contact-item" href="tel:+306989801597">
+        <svg class="contact-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        +30 698 980 1597
+      </a>
+      <a class="contact-item" href="mailto:masterastea@gmail.com">
+        <svg class="contact-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        mastorasleo@gmail.com
+      </a>
+      <a class="contact-item" href="https://m.me/masterleo/">
+        <svg class="contact-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        m.me/masterleo
+      </a>
+    </div>
+
+    <!-- Education -->
+    <div class="s-section">
+      <div class="s-label">Education</div>
+      <div class="edu-degree">B.Sc. in Computer Science</div>
+      <div class="edu-school">Dept. of Informatics & Telecommunications<br>National University of Athens</div>
+      <div class="edu-period">Oct 2011 – Aug 2015</div>
+      <div class="edu-note">Direction: Computer Systems & Applications<br>Specialisation: Software Engineering</div>
+    </div>
+
+    <!-- Professional Skills -->
+    <div class="s-section">
+      <div class="s-label">Skills</div>
+      <div class="skill-group">
+        <div class="skill-group-title">Professional</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Time Management</span>
+          <span class="skill-tag">Problem Solving</span>
+          <span class="skill-tag">Communication</span>
+          <span class="skill-tag">Team Influence</span>
+          <span class="skill-tag">Multi Tasking</span>
+          <span class="skill-tag">Fast Learner</span>
+          <span class="skill-tag">Leadership</span>
+          <span class="skill-tag">Creativity</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Frontend</div>
+        <div class="skill-tags">
+          <span class="skill-tag hot">HTML5</span>
+          <span class="skill-tag hot">CSS3</span>
+          <span class="skill-tag hot">JavaScript</span>
+          <span class="skill-tag hot">ECMAScript</span>
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">Angular</span>
+          <span class="skill-tag">Bootstrap</span>
+          <span class="skill-tag">VueJS</span>
+          <span class="skill-tag">RxJS</span>
+          <span class="skill-tag">Redux</span>
+          <span class="skill-tag">SASS</span>
+          <span class="skill-tag">PWA</span>
+          <span class="skill-tag">Webpack</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Backend</div>
+        <div class="skill-tags">
+          <span class="skill-tag">MongoDB</span>
+          <span class="skill-tag">Node</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">PHP</span>
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag">Laravel</span>
+          <span class="skill-tag">AWS</span>
+          <span class="skill-tag">Docker</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Workflow</div>
+        <div class="skill-tags">
+          <span class="skill-tag">VS Code</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">SCRUM</span>
+          <span class="skill-tag">Office</span>
+          <span class="skill-tag">VBA</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Graphics</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Photoshop</span>
+          <span class="skill-tag">Illustrator</span>
+          <span class="skill-tag">Midjourney</span>
+          <span class="skill-tag">Krea</span>
+          <span class="skill-tag">Canva</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Publications -->
+    <div class="s-section">
+      <div class="s-label">Publications</div>
+      <div class="pub-item"><strong>Decision Support System</strong> uses multi-criteria decision methods WSM, AHP, TOPSIS by management theory</div>
+    </div>
+
+    <!-- Patterns -->
+    <div class="s-section">
+      <div class="s-label">Patterns</div>
+      <div class="pattern-group">
+        <div class="pattern-group-title">Code Design</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Factory</span>
+          <span class="skill-tag">Singleton</span>
+          <span class="skill-tag">Prototype</span>
+          <span class="skill-tag">Interceptor</span>
+          <span class="skill-tag">Decorator</span>
+          <span class="skill-tag">Module</span>
+          <span class="skill-tag">Iterator</span>
+          <span class="skill-tag">Observer</span>
+          <span class="skill-tag">Visitor</span>
+          <span class="skill-tag">Reflection</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Achievements -->
+    <div class="s-section">
+      <div class="s-label">Achievements</div>
+      <div class="ach-item">1st Computer Program QBasic (age 9, 1999)</div>
+      <div class="ach-item">1st Website online @geocities (age 11, 1999)</div>
+      <div class="ach-item">1st Place in 2004 nation-wide student programming contest (EPY 2nd Phase)</div>
+      <div class="ach-item">2nd place in campaign for UK Designer Expert Position in European Central Bank</div>
+      <div class="ach-item">3x World 1st DPS Shadow Priest · 2x Season Gladiator · Warrior World of Warcraft</div>
+    </div>
+
+    <!-- Interests -->
+    <div class="s-section">
+      <div class="s-label">Interests</div>
+      <div class="interest-cloud">
+        <span class="interest-chip">Computer Programming</span>
+        <span class="interest-chip">Code Syntax & Art</span>
+        <span class="interest-chip">World Class E-Gaming</span>
+        <span class="interest-chip">Rhyme Stories</span>
+        <span class="interest-chip">Math</span>
+        <span class="interest-chip">Physics</span>
+        <span class="interest-chip">Chemistry</span>
+        <span class="interest-chip">Medicine</span>
+        <span class="interest-chip">Philosophy</span>
+        <span class="interest-chip">Policy</span>
+        <span class="interest-chip">Finance</span>
+        <span class="interest-chip">Markets</span>
+        <span class="interest-chip">Trading</span>
+        <span class="interest-chip">Music</span>
+        <span class="interest-chip">Movies</span>
+        <span class="interest-chip">TV Shows</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ── MAIN ── -->
+  <main>
+
+    <div class="main-header">
+      <div class="main-name">Leonidas<br>Giannoulis</div>
+      <div class="main-roles">
+        <span class="role-tag filled">IT Expert</span>
+        <span class="role-tag">UX Designer</span>
+        <span class="role-tag filled">Web Developer</span>
+        <span class="role-tag">Fintech Investor</span>
+        <span class="role-tag filled">AI Prompt Engineer</span>
+      </div>
+    </div>
+
+    <!-- Profile -->
+    <div class="section">
+      <div class="section-title">Profile</div>
+      <p class="profile-text">Design &amp; develop websites, CMS web app modules, digital products, interfaces, graphics, images and scripts to simplify and automate the process of online communication.</p>
+    </div>
+
+    <!-- Experience -->
+    <div class="section">
+      <div class="section-title">Experience</div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-company">Redbubble.com — Graphics Designer · Eshop Admin</div>
+          <div class="exp-period">May 2022 – Today</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Designing AI artwork for investment and passive income strategies</li>
+          <li>Utilising such design by uploading them in Redbubble, thus generating income from sales</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-company">Fintech Investor</div>
+          <div class="exp-period">Jan 2019 – May 2022</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Searching for opportunities across the cryptocurrency space for investment and passive income strategies</li>
+          <li>Allocate and manage funds with Grid, Bots, Rebalancers</li>
+          <li>Building stable systems for Proof of Work coin mining</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-company">European Central Bank</div>
+          <div class="exp-period">Jan 2016 – Dec 2018</div>
+        </div>
+        <div class="exp-role">Web Developer</div>
+        <ul class="exp-bullets">
+          <li>Trainee for 7 months creating backend modules that streamline the publishing processes, impressed the senior management so they offered me consultant</li>
+          <li>The external consultant position was handled by Sarco services GmbH and my role stayed the same, to create custom web modules with cutting-edge features, combining everything into a complete in-house CMS</li>
+          <li>ECB added Sarco contract and I was short-listed for an F/O Expert Position of UX Designer role</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-company">COSMOTE — IT Support Helpdesk</div>
+          <div class="exp-period">Sep 2010 – Mar 2012</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Provided IT Technical Support to internal stakeholders across the company for the whole organisation</li>
+          <li>Designed &amp; developed tools to streamline bureaucratic administrative tasks and improve efficiency</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="section">
+      <div class="section-title">Projects</div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-name">Web Components Manager Tools</div>
+          <div class="project-desc">Custom system interface to manage and publish web content based mainly for ECB homepage</div>
+        </div>
+        <div class="project-card">
+          <div class="project-name">Web Releases</div>
+          <div class="project-desc">Speeches, interviews, publications management system with scheduled publishing and automatic recognition via property extraction of Word/PDF files</div>
+        </div>
+        <div class="project-card">
+          <div class="project-name">Social Media Infographics Editor</div>
+          <div class="project-desc">Easy/fast, high-quality images based on HTML/CSS templates</div>
+        </div>
+        <div class="project-card">
+          <div class="project-name">DOCX to HTML Converter</div>
+          <div class="project-desc">Complete element support: Tables, Footnotes, Math, Multi-Language, grouping, equations, MathML, Images, Excel Charts</div>
+        </div>
+        <div class="project-card">
+          <div class="project-name">XLS to JS Charts Converter</div>
+          <div class="project-desc">e.g. Annual Balance Sheet via Chart.js</div>
+        </div>
+        <div class="project-card">
+          <div class="project-name">AD — Closest Cell Phone Finder</div>
+          <div class="project-desc">Find the closest cell phone antennas in a database of a location sorted by distance from source</div>
+        </div>
+        <div class="project-card">
+          <div class="project-name">Object-Oriented Compiler</div>
+          <div class="project-desc">For a subset of JAVA (minijava)</div>
+        </div>
+        <div class="project-card">
+          <div class="project-name">B+ Tree API</div>
+          <div class="project-desc">Complete interface for data storage system using B+ Tree technology written in C</div>
+        </div>
+        <div class="project-card">
+          <div class="project-name">Fsync</div>
+          <div class="project-desc">Multithreaded file syncing software over network using hash trees, similar to Rsync</div>
+        </div>
+        <div class="project-card">
+          <div class="project-name">TTT — 12MB Call Phone Game</div>
+          <div class="project-desc">Matchmaking multiplayer online support</div>
+        </div>
+        <div class="project-card">
+          <div class="project-name">DSS</div>
+          <div class="project-desc">Decision support system implementing multi-criteria decision methods WSM, AHP, TOPSIS, MS Excel spreadsheets</div>
+        </div>
+        <div class="project-card">
+          <div class="project-name">Odyssey</div>
+          <div class="project-desc">Remote administration tool written in C# .NET</div>
+        </div>
+        <div class="project-card">
+          <div class="project-name">KAA</div>
+          <div class="project-desc">Tool to manage financial portfolio written in VB</div>
+        </div>
+        <div class="project-card">
+          <div class="project-name">GFKdb</div>
+          <div class="project-desc">Database management system for GFK Hellas, utilising latest Java tech to translate simple button clicks from inexperienced users to complex SQL queries</div>
+        </div>
+        <div class="project-card">
+          <div class="project-name">PP — Social Networking Website</div>
+          <div class="project-desc">Offering subset of Facebook services</div>
+        </div>
+        <div class="project-card">
+          <div class="project-name">NMS Lite</div>
+          <div class="project-desc">Network management system offering subset of Nagios services</div>
+        </div>
+        <div class="project-card">
+          <div class="project-name">YPYG</div>
+          <div class="project-desc">Healthcare related website to easily connect patients with doctors</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Impact -->
+    <div class="section">
+      <div class="section-title">Impact</div>
+      <div class="impact-grid">
+        <div class="impact-item">
+          <div class="impact-label">Problem · Action · Result</div>
+          <div class="impact-text">Web models outlined had page content to manually change the HTML code. This made the process error-prone and so I created a tool that generated a UI out of editable options. This resulted in an increased senior task completion speed by at least 300% and they couldn't go wrong.</div>
+        </div>
+        <div class="impact-item">
+          <div class="impact-label">Publishing Automation</div>
+          <div class="impact-text">Web models used for mass confusing and outdated publishing forms for any time a business was requested something to be published. Created a system so that when the business came across the blank upload they were told how a content (pdf, audio, doc, etc.) would be formatted; it automatically generated cleanly formatted HTML with meta-data recognised and assigned to be published to the proper section automatically.</div>
+        </div>
+        <div class="impact-item">
+          <div class="impact-label">Infographics</div>
+          <div class="impact-text">I made a design tool so that my work colleagues could be able to generate infographic content for social media while keeping the ECB Brand and style. This reduced the workload for the design team by at least 50% for social media requests since people were creating what they needed on their own.</div>
+        </div>
+        <div class="impact-item">
+          <div class="impact-label">Satisfaction</div>
+          <div class="impact-text">I have been so enthusiastic about the projects that I was radiating my excitement to seniors, radiating happiness and joy across the whole team. This key quality of carrying everyone through difficult issues resulted in increased team performance and job satisfaction.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- References -->
+    <div class="section">
+      <div class="section-title">References</div>
+      <div class="refs-grid">
+        <div class="ref-card">
+          <div class="ref-name">Marcello Di Pietro</div>
+          <div class="ref-title">Head of Web &amp; Digital Division<br>European Central Bank<br>Frankfurt am Main, Germany</div>
+          <div class="ref-contact">marcello.di_pietro@ecb.europa.eu</div>
+        </div>
+        <div class="ref-card">
+          <div class="ref-name">Yannis Smaragdakis</div>
+          <div class="ref-title">Associate Professor<br>Dept. of Informatics &amp; Telecommunications<br>National University of Athens</div>
+          <div class="ref-contact">smaragd@di.uoa.gr</div>
+        </div>
+        <div class="ref-card">
+          <div class="ref-name">Dimitris Dimas</div>
+          <div class="ref-title">Director of IT Managed Services &amp; Digital Workplace<br>Cosmote, Marousi, Greece</div>
+          <div class="ref-contact">dimas@cosmote.gr</div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>
