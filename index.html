@@ -24,6 +24,16 @@
     --cyan-mid: #B2E4ED;
   }
 
+/* Text Gradient CSS */
+.text-gradient {
+  color: #FCFFFF;
+  background-image: linear-gradient(45deg, #FCFFFF , #4AFFC6 33%, #00f0ff 67%, #29FFA6 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   html { scroll-behavior: smooth; }
@@ -445,6 +455,11 @@
     align-items: flex-start;
   }
 
+  .project-item:nth-child(even) {
+    background: var(--marble-2);
+    border-color: var(--silver-light);
+  }
+
   .project-item:hover {
     box-shadow: 0 4px 18px rgba(10,123,142,0.1);
     transform: translateY(-1px);
@@ -774,10 +789,12 @@
   <div class="hero">
     <div class="hero-inner">
       <div class="avatar-ring">
-        <span class="material-icons">person</span>
+        <img src="leo.png" width="90%" alt="Leo">
+        <!--<span class="material-icons">person</span>-->
       </div>
+
       <div>
-        <div class="hero-name">Leonidas<span>Giannoulis</span></div>
+        <div class="hero-name text-gradient">Leonidas<span>Giannoulis</span></div>
         <div class="hero-tags">
           <span class="tag accent">IT Expert</span>
           <span class="tag">UX Designer</span>
@@ -1063,7 +1080,7 @@ By combining modern web technologies with elegant design and smart scripting, I 
   <div class="section">
     <div class="section-header">
       <span class="material-icons">psychology</span>
-      <span class="section-title">Skills</span>
+      <span class="section-title">Miscellaneous Skills</span>
     </div>
     <div class="skills-grid">
       <div class="skill-cat">
@@ -1094,7 +1111,7 @@ By combining modern web technologies with elegant design and smart scripting, I 
         </div>
       </div>
       <div class="skill-cat">
-        <div class="skill-cat-title"><span class="material-icons">device_hub</span> Patterns</div>
+        <div class="skill-cat-title"><span class="material-icons">device_hub</span>Code Patterns</div>
         <div class="skill-pill-wrap">
           <span class="skill-pill">Prototype</span>
           <span class="skill-pill">Factory</span>
@@ -1332,7 +1349,8 @@ By combining modern web technologies with elegant design and smart scripting, I 
     </div>
 
     <div class="reference-card">
-      <div class="ref-avatar"><span class="material-icons">person</span></div>
+      <!--<div class="ref-avatar"><span class="material-icons">person</span></div>-->
+      <img src="marcello.png">
       <div>
         <div class="ref-name">Marcello Di Pietro</div>
         <div class="ref-title">Head of Web &amp; Digital Division<br>European Central Bank · Frankfurt am Main, Germany</div>
@@ -1344,7 +1362,7 @@ By combining modern web technologies with elegant design and smart scripting, I 
     </div>
 
     <div class="reference-card">
-      <div class="ref-avatar"><span class="material-icons">person</span></div>
+      <img src="smaragd.png">
       <div>
         <div class="ref-name">Yannis Smaragdakis</div>
         <div class="ref-title">Associate Professor<br>Dept. of Informatics &amp; Telecommunications · National University of Athens</div>
@@ -1356,7 +1374,7 @@ By combining modern web technologies with elegant design and smart scripting, I 
     </div>
 
     <div class="reference-card">
-      <div class="ref-avatar"><span class="material-icons">person</span></div>
+      <img src="dimas.png">
       <div>
         <div class="ref-name">Dimitris Dimas</div>
         <div class="ref-title">Director of IT Managed Services &amp; Digital Workplace<br>Cosmote · Marousi, Greece</div>
