@@ -27,7 +27,7 @@
 /* Text Gradient CSS */
 .text-gradient {
   color: #FCFFFF;
-  background-image: linear-gradient(45deg, #FCFFFF , #4AFFC6 33%, #00f0ff 67%, #eaedec 33%);
+  background-image: linear-gradient(45deg, #FCFFFF 23% , #4AFFC6 25%, #00f0ff 65%, #eaedec 33%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -490,6 +490,22 @@
     font-size: 12px;
     color: var(--gray);
     line-height: 1.55;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .project-tag {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--marble-3);
+    background: var(--marble-1);
+    color: var(--dark);
+    font-weight: 500;
   }
 
   /* === IMPACT === */
@@ -1096,9 +1112,9 @@
     </div>
     <div class="profile-card">
       <!--<p>Design & develop websites, CMS web app modules, digital products, interfaces, graphics, images and scripts to simplify and automate the process of online communication.</p>-->
-      <p>I specialize in designing and developing high-converting websites, powerful CMS modules, innovative digital products, intuitive interfaces, compelling graphics, custom images, and intelligent automation scripts.
+      <p>I specialize in designing and developing <b>high-converting</b> websites, <b>powerful</b> CMS modules, <b>innovative</b> digital products, <b>intuitive</b> interfaces, <b>compelling</b> graphics, <b>custom</b> images, and <b>intelligent</b> automation scripts.
 My solutions fully automate every stage of your online communication—from lead capture and inquiries to personalized multi-channel messaging, automated replies, follow-ups, and team collaboration.
-By combining modern web technologies with elegant design and smart scripting, I turn chaotic manual processes into efficient, scalable systems that save time, cut costs, boost customer satisfaction, and drive sustainable business growth across websites, social media, email, chat, and CRM integrations.
+By combining <b>modern</b> web technologies with <b>elegant</b> design and <b>smart</b> scripting, I turn chaotic manual processes into <b>efficient</b>, <b>scalable</b> systems that save time, cut costs, boost customer satisfaction, and drive <b>sustainable</b> business growth across websites, social media, email, chat, and CRM integrations.
 </p>
     </div>
   </div>
@@ -1115,6 +1131,7 @@ By combining modern web technologies with elegant design and smart scripting, I 
     <div class="card">
       <div class="card-top">
         <div>
+          <img src="redbubble.png">
           <div class="card-company">Redbubble.com</div>
           <div class="card-role">Graphics Designer · Eshop Admin</div>
         </div>
@@ -1129,6 +1146,7 @@ By combining modern web technologies with elegant design and smart scripting, I 
     <div class="card">
       <div class="card-top">
         <div>
+          <img src="nexo.png">
           <div class="card-company">Nexo.com</div>
           <div class="card-role">Independent Fintech Investor</div>
         </div>
@@ -1144,6 +1162,7 @@ By combining modern web technologies with elegant design and smart scripting, I 
     <div class="card">
       <div class="card-top">
         <div>
+          <img src="ecb.png">
           <div class="card-company">European Central Bank</div>
           <div class="card-role">Web Developer</div>
         </div>
@@ -1160,6 +1179,7 @@ By combining modern web technologies with elegant design and smart scripting, I 
     <div class="card">
       <div class="card-top">
         <div>
+          <img src="cosmote.png">
           <div class="card-company">COSMOTE</div>
           <div class="card-role">IT Support Helpdesk</div>
         </div>
@@ -1411,14 +1431,27 @@ By combining modern web technologies with elegant design and smart scripting, I 
       <div>
         <div class="project-name">Web Components Manager Tools</div>
         <div class="project-desc">Custom system interface to manage and publish web content (used mainly for ECB homepage)</div>
+        <div class="project-tags">
+          <div class="project-tag">HTML5</div>
+          <div class="project-tag">CSS3</div>
+          <div class="project-tag">JavaScript</div>
+          <div class="project-tag">Angular</div>
+          <div class="project-tag">LAMP</div>
+        </div>
       </div>
     </div>
 
     <div class="project-item">
       <div class="project-icon"><span class="material-icons">record_voice_over</span></div>
       <div>
-        <div class="project-name">Social Media Speeches Manager</div>
+        <div class="project-name">Web Releases (Speeches,Interviews,Publications Manager)</div>
         <div class="project-desc">Manage system for scheduled publishing with automatic recognition via property extraction of Word/PDF files</div>
+        <div class="project-tags">
+          <div class="project-tag">HTML5</div>
+          <div class="project-tag">CSS3</div>
+          <div class="project-tag">JavaScript</div>
+          <div class="project-tag">Angular</div>
+        </div>
       </div>
     </div>
 
@@ -1426,7 +1459,13 @@ By combining modern web technologies with elegant design and smart scripting, I 
       <div class="project-icon"><span class="material-icons">photo_library</span></div>
       <div>
         <div class="project-name">Social Media Infographics Editor</div>
-        <div class="project-desc">Juicy / Fast / High quality images based on HTML/CSS templates</div>
+        <div class="project-desc">Fast / High quality images based on HTML/CSS templates</div>
+        <div class="project-tags">
+          <div class="project-tag">HTML5</div>
+          <div class="project-tag">CSS3</div>
+          <div class="project-tag">JavaScript</div>
+          <div class="project-tag">2D Canvas</div>
+        </div>
       </div>
     </div>
 
@@ -1435,6 +1474,10 @@ By combining modern web technologies with elegant design and smart scripting, I 
       <div>
         <div class="project-name">DOCX to HTML Converter</div>
         <div class="project-desc">Complete element support including Lists, Tables, Footnotes, Math (MathML), Images and Excel Charts</div>
+        <div class="project-tags">
+          <div class="project-tag">JavaScript</div>
+          <div class="project-tag">mammoth.js</div>
+        </div>
       </div>
     </div>
 
@@ -1443,14 +1486,21 @@ By combining modern web technologies with elegant design and smart scripting, I 
       <div>
         <div class="project-name">XLS to JS Charts Converter</div>
         <div class="project-desc">Convert any Balance Sheet/Financial Report data to dynamic charts (e.g. Amcharts, ECharts)</div>
+        <div class="project-tags">
+          <div class="project-tag">JavaScript</div>
+          <div class="project-tag">chart.js</div>
+        </div>
       </div>
     </div>
 
     <div class="project-item">
       <div class="project-icon"><span class="material-icons">phone_android</span></div>
       <div>
-        <div class="project-name">AD — Cold Phone Enumerator</div>
-        <div class="project-desc">Find all cold phone entries in Active Directory sorted by distance from source</div>
+        <div class="project-name">AD — Phone</div>
+        <div class="project-desc">Find the closest cell phone antennas in a database of a location sorted by distance from source</div>
+        <div class="project-tags">
+          <div class="project-tag">JavaScript</div>
+        </div>
       </div>
     </div>
 
@@ -1458,7 +1508,10 @@ By combining modern web technologies with elegant design and smart scripting, I 
       <div class="project-icon"><span class="material-icons">storage</span></div>
       <div>
         <div class="project-name">B+ Tree API (Data Storage)</div>
-        <div class="project-desc">Complete interface for data storage system using B+ Tree technology written in C#</div>
+        <div class="project-desc">Complete interface for data storage system using B+ Tree technology written in C</div>
+        <div class="project-tags">
+          <div class="project-tag">C</div>
+        </div>
       </div>
     </div>
 
@@ -1466,7 +1519,10 @@ By combining modern web technologies with elegant design and smart scripting, I 
       <div class="project-icon"><span class="material-icons">sync</span></div>
       <div>
         <div class="project-name">Fsync — File Sync Utility</div>
-        <div class="project-desc">Multithreaded file syncing software over network using hash trees, similar to Rsync</div>
+        <div class="project-desc">Multithreaded file syncing software over network using merkle hash trees, similar to Rsync</div>
+                <div class="project-tags">
+                  <div class="project-tag">C</div>
+                </div>
       </div>
     </div>
 
@@ -1475,6 +1531,11 @@ By combining modern web technologies with elegant design and smart scripting, I 
       <div>
         <div class="project-name">TTT — J2ME Call Game</div>
         <div class="project-desc">J2ME Call phone game with matchmaking multiplayer online support</div>
+                <div class="project-tags">
+                  <div class="project-tag">Java</div>
+                  <div class="project-tag">J2ME</div>
+                  <div class="project-tag">Netbeans</div>
+                </div>
       </div>
     </div>
 
@@ -1483,6 +1544,9 @@ By combining modern web technologies with elegant design and smart scripting, I 
       <div>
         <div class="project-name">DSS — Decision Support System</div>
         <div class="project-desc">Implements several multi-criteria decision methods from WSM, AHP, TOPSIS etc. over MS Excel spreadsheets</div>
+                <div class="project-tags">
+                  <div class="project-tag">XLS</div>
+                </div>
       </div>
     </div>
 
@@ -1491,6 +1555,9 @@ By combining modern web technologies with elegant design and smart scripting, I 
       <div>
         <div class="project-name">Odyssey — Remote Administration Tool</div>
         <div class="project-desc">Written in C# .NET for comprehensive remote management</div>
+                <div class="project-tags">
+                  <div class="project-tag">.NET</div>
+                </div>
       </div>
     </div>
 
@@ -1499,6 +1566,23 @@ By combining modern web technologies with elegant design and smart scripting, I 
       <div>
         <div class="project-name">XAA — Financial Portfolio Manager</div>
         <div class="project-desc">Tool to manage financial portfolios, written in VB</div>
+                <div class="project-tags">
+                  <div class="project-tag">Visual Basic</div>
+                  <div class="project-tag">Winsock</div>
+                </div>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-icon"><span class="material-icons">database</span></div>
+      <div>
+        <div class="project-name">GFKdb — Database management system for GFK Hellas</div>
+        <div class="project-desc">Utilizing latest Java tech to translate simple button clicks from inexperienced users to complex SQL queries</div>
+                <div class="project-tags">
+                  <div class="project-tag">Java</div>
+                  <div class="project-tag">JSP</div>
+                  <div class="project-tag">MySQL</div>
+                </div>
       </div>
     </div>
 
@@ -1506,7 +1590,12 @@ By combining modern web technologies with elegant design and smart scripting, I 
       <div class="project-icon"><span class="material-icons">people</span></div>
       <div>
         <div class="project-name">PP — Social Networking Website</div>
-        <div class="project-desc">Offering subset of Facebook services</div>
+        <div class="project-desc">Offering a subset of Facebook services</div>
+                <div class="project-tags">
+                  <div class="project-tag">Java</div>
+                  <div class="project-tag">JSP</div>
+                  <div class="project-tag">MySQL</div>
+                </div>
       </div>
     </div>
 
@@ -1515,6 +1604,10 @@ By combining modern web technologies with elegant design and smart scripting, I 
       <div>
         <div class="project-name">YPYG — Healthcare Website</div>
         <div class="project-desc">Purposed to easily connect patients with doctors</div>
+                <div class="project-tags">
+                  <div class="project-tag">PHP</div>
+                  <div class="project-tag">MySQL</div>
+                </div>
       </div>
     </div>
   </div>
