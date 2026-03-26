@@ -742,6 +742,136 @@
   }
 
   /* === DIVIDER === */
+  /* === CERTIFICATES === */
+  .cert-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+ 
+  @media (min-width: 600px) {
+    .cert-grid { grid-template-columns: 1fr 1fr; }
+  }
+ 
+  .cert-card {
+    background: linear-gradient(145deg, var(--white) 0%, #eef9fb 60%, #e0f4f7 100%);
+    border-radius: 18px;
+    border: 1px solid var(--cyan-mid);
+    box-shadow:
+      0 2px 16px rgba(10,123,142,0.08),
+      inset 0 1px 0 rgba(255,255,255,0.9);
+    padding: 22px 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.25s, transform 0.2s;
+  }
+ 
+  .cert-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--cyan) 30%, #1ABFDA 50%, var(--cyan) 70%, transparent);
+    box-shadow: 0 0 10px 2px rgba(26,191,218,0.5);
+    animation: saberPulse 3s ease-in-out infinite;
+  }
+ 
+  .cert-card:hover {
+    box-shadow:
+      0 6px 28px rgba(10,123,142,0.15),
+      0 0 0 1px rgba(26,191,218,0.3),
+      inset 0 1px 0 rgba(255,255,255,0.9);
+    transform: translateY(-3px);
+  }
+ 
+  .cert-badge {
+    width: 48px; height: 48px;
+    background: linear-gradient(135deg, var(--cyan) 0%, #0d3840 100%);
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 14px rgba(10,123,142,0.3), 0 0 0 2px rgba(26,191,218,0.2);
+    flex-shrink: 0;
+  }
+ 
+  .cert-badge .material-icons {
+    font-size: 26px;
+    color: var(--white);
+  }
+ 
+  .cert-body {
+    flex: 1;
+  }
+ 
+  .cert-issuer {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 4px;
+  }
+ 
+  .cert-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--black);
+    line-height: 1.15;
+    letter-spacing: -0.3px;
+  }
+ 
+  .cert-level {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--cyan);
+    padding: 2px 10px;
+    border-radius: 20px;
+    margin: 6px 0 10px;
+  }
+ 
+  .cert-desc {
+    font-size: 12px;
+    color: var(--gray);
+    line-height: 1.6;
+    font-style: italic;
+  }
+ 
+  .cert-date {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--silver-dark);
+    margin-top: 12px;
+    letter-spacing: 0.3px;
+  }
+ 
+  .cert-date .material-icons {
+    font-size: 13px;
+    color: var(--cyan);
+  }
+ 
+  .cert-seal {
+    position: absolute;
+    top: 16px; right: 16px;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1ABFDA 0%, var(--cyan) 100%);
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 900;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 10px 3px rgba(26,191,218,0.4);
+    animation: saberPulse 3s ease-in-out infinite;
+  }
+
   /* === LIGHTSABER DIVIDER === */
   @keyframes saberPulse {
     0%,100% {
@@ -1107,32 +1237,41 @@ By combining modern web technologies with elegant design and smart scripting, I 
         <span class="tech-tag">HTML5</span>
         <span class="tech-tag">XML</span>
         <span class="tech-tag">XSD</span>
+        <span class="tech-tag">XSTL</span>
         <span class="tech-tag">W3C</span>
         <span class="tech-tag">CSS3</span>
         <span class="tech-tag">SASS</span>
         <span class="tech-tag">TC39</span>
         <span class="tech-tag">Babel</span>
         <span class="tech-tag">jQuery</span>
-        <span class="tech-tag highlight">Vue.js</span>
-        <span class="tech-tag">React</span>
+        <span class="tech-tag ">Vue.js</span>
+        <span class="tech-tag highlight">React</span>
+        <span class="tech-tag highlight">Typescript</span>
         <span class="tech-tag">Angular</span>
         <span class="tech-tag">Bootstrap</span>
+        <span class="tech-tag">Tailwind</span>
         <span class="tech-tag">Material</span>
         <span class="tech-tag">Quasar</span>
+        <span class="tech-tag">Vuetify</span>
         <span class="tech-tag">DOM</span>
         <span class="tech-tag">Regex</span>
         <span class="tech-tag">RxJS</span>
         <span class="tech-tag">Redux</span>
-        <span class="tech-tag">AMP</span>
         <span class="tech-tag">Router</span>
+        <span class="tech-tag">AMP</span>
         <span class="tech-tag">SPA</span>
         <span class="tech-tag">PWA</span>
         <span class="tech-tag">SSR</span>
+        <span class="tech-tag">SSG</span>
+        <span class="tech-tag">HMR</span>
+        <span class="tech-tag">CDN</span>
         <span class="tech-tag">NuxtJS</span>
-        <span class="tech-tag">Next</span>
+        <span class="tech-tag highlight">NextJS</span>
         <span class="tech-tag">Electron</span>
         <span class="tech-tag">Cordova</span>
         <span class="tech-tag">Webpack</span>
+        <span class="tech-tag">Vite</span>
+        <span class="tech-tag">Selenium</span>
       </div>
     </div>
 
@@ -1140,7 +1279,9 @@ By combining modern web technologies with elegant design and smart scripting, I 
       <div class="tech-block-title">Backend</div>
       <div class="tech-tags">
         <span class="tech-tag highlight">Node.js</span>
-        <span class="tech-tag highlight">PHP</span>
+        <span class="tech-tag">deno</span>
+        <span class="tech-tag">bun</span>
+        <span class="tech-tag ">PHP</span>
         <span class="tech-tag">MongoDB</span>
         <span class="tech-tag">Express</span>
         <span class="tech-tag">Meteor</span>
@@ -1155,7 +1296,9 @@ By combining modern web technologies with elegant design and smart scripting, I 
         <span class="tech-tag">IIS</span>
         <span class="tech-tag">Windows</span>
         <span class="tech-tag">Sharepoint</span>
-        <span class="tech-tag">REST API</span>
+        <span class="tech-tag highlight">REST API</span>
+        <span class="tech-tag">GraphQL</span>
+        <span class="tech-tag">ORM</span>
         <span class="tech-tag">Linux</span>
         <span class="tech-tag">Apache</span>
         <span class="tech-tag">MySQL</span>
@@ -1169,6 +1312,9 @@ By combining modern web technologies with elegant design and smart scripting, I 
         <span class="tech-tag">Azure</span>
         <span class="tech-tag">Google Cloud</span>
         <span class="tech-tag">Heroku</span>
+        <span class="tech-tag">LLM</span>
+        <span class="tech-tag">AI</span>
+        <span class="tech-tag">Blockchain</span>
       </div>
     </div>
 
@@ -1176,13 +1322,18 @@ By combining modern web technologies with elegant design and smart scripting, I 
       <div class="tech-block-title">Workflow</div>
       <div class="tech-tags">
         <span class="tech-tag highlight">VS Code</span>
-        <span class="tech-tag">Git</span>
-        <span class="tech-tag">Docker</span>
+        <span class="tech-tag highlight">Git</span>
         <span class="tech-tag">JIRA</span>
         <span class="tech-tag">Github</span>
+        <span class="tech-tag">Gitlab</span>
+        <span class="tech-tag">Virtual Box</span>
+        <span class="tech-tag">Docker</span>
+        <span class="tech-tag">Kubernetes</span>
         <span class="tech-tag">SCRUM</span>
         <span class="tech-tag">Office</span>
         <span class="tech-tag">VBA</span>
+        <span class="tech-tag">Macros</span>
+        <span class="tech-tag">Scripting</span>
       </div>
     </div>
   </div>
@@ -1221,6 +1372,8 @@ By combining modern web technologies with elegant design and smart scripting, I 
           <span class="skill-pill">Canva</span>
           <span class="skill-pill">ffmpeg</span>
           <span class="skill-pill">vlc</span>
+          <span class="skill-pill">Topaz</span>
+          <span class="skill-pill">AVI Demux</span>
         </div>
       </div>
       <div class="skill-cat">
@@ -1231,9 +1384,11 @@ By combining modern web technologies with elegant design and smart scripting, I 
           <span class="skill-pill">Singleton</span>
           <span class="skill-pill">Interceptor</span>
           <span class="skill-pill">Composite</span>
-          <span class="skill-pill">MVP</span>
+          <span class="skill-pill">MVC</span>
           <span class="skill-pill">Observer</span>
           <span class="skill-pill">Visitor</span>
+          <span class="skill-pill">Command</span>
+          <span class="skill-pill">Decorator</span>
           <span class="skill-pill">Dependency Injection</span>
         </div>
       </div>
@@ -1341,7 +1496,7 @@ By combining modern web technologies with elegant design and smart scripting, I 
     <div class="project-item">
       <div class="project-icon"><span class="material-icons">account_balance_wallet</span></div>
       <div>
-        <div class="project-name">KAA — Financial Portfolio Manager</div>
+        <div class="project-name">XAA — Financial Portfolio Manager</div>
         <div class="project-desc">Tool to manage financial portfolios, written in VB</div>
       </div>
     </div>
@@ -1428,7 +1583,58 @@ By combining modern web technologies with elegant design and smart scripting, I 
     </div>
   </div>
 
-
+  <!-- CERTIFICATES -->
+  <div class="marble-divider"><span class="saber-spark"></span><span class="saber-spark"></span><span class="saber-spark"></span><span class="saber-spark"></span><span class="saber-spark"></span><span class="saber-spark"></span></div>
+ 
+  <div class="section">
+    <div class="section-header">
+      <span class="material-icons">workspace_premium</span>
+      <span class="section-title">Certificates of Accomplishment</span>
+    </div>
+ 
+    <div class="cert-grid">
+      
+        <div class="cert-card">
+          <div class="cert-badge">
+            <a href="cert1.png">
+            <span class="material-icons">psychology</span>
+            </a>
+          </div>
+          <div class="cert-body">
+            <div class="cert-issuer">HackerRank</div>
+            <div class="cert-title">Problem Solving</div>
+            <div class="cert-level">Basic</div>
+            <div class="cert-desc">«The bearer of this certificate has passed the HackerRank skill certification test.»</div>
+            <div class="cert-date">
+              <span class="material-icons">calendar_today</span>
+              16 June 2024
+            </div>
+          </div>
+          <div class="cert-seal">✓</div>
+        </div>
+      
+      
+        <div class="cert-card">
+          <div class="cert-badge">
+            <a href="cert2.png">
+            <span class="material-icons">code</span>
+            </a>
+          </div>
+          <div class="cert-body">
+            <div class="cert-issuer">HackerRank</div>
+            <div class="cert-title">JavaScript</div>
+            <div class="cert-level">Basic</div>
+            <div class="cert-desc">«The bearer of this certificate has passed the HackerRank skill certification test.»</div>
+            <div class="cert-date">
+              <span class="material-icons">calendar_today</span>
+              18 June 2024
+            </div>
+          </div>
+          <div class="cert-seal">✓</div>
+        </div>
+      
+    </div>
+  </div>
 
   <!-- INTERESTS -->
   <div class="section">
